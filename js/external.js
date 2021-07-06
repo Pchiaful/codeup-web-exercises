@@ -27,3 +27,13 @@
 // var seconds = Math.round((timeGain - minutesGained) * 60);
 // console.log("if you drive at " + plannedSpeedInMph + " mph, you will arrive " + minutesGained + " minutes and " + seconds + " seconds earlier. Is it worth speeding?");
 
+console.log("Hello from external Javascript.")
+
+alert("Welcome to my website!");
+
+prompt("What is your favorite color?");
+
+alert ("")
+var favoriteColor = prompt("That is my favorite color too!");
+
+
