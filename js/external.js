@@ -51,27 +51,31 @@
 //     * parseInt(rentalPerDayDollars));
 
 
-var googleHourlyRateDollars = prompt("What is Google's hourly rate?");
-var amazonHourlyRateDollars = prompt("What is Amazon's hourly rate?");
-var facebookHourlyRateDollars = prompt("what is Facebook's hourly rate?");
-var googleHours = prompt("How many hours did you work for Google?");
-var amazonHours = prompt("How many hours did you work for Amazon?");
-var facebookHours = prompt("How many hours did you work for Facebook?");
-var totalPayment = alert("Your total pay for this week is $") +
-    (totalPayment = googleHours * googleHourlyRateDollars);
-(totalPayment += amazonHours * amazonHourlyRateDollars);
-(totalPayment += facebookHours * facebookHourlyRateDollars);
+
+// var numberOfItems; // number
+// var offerIsNotExpired; // boolean
+// var isPremiumMember; // booleanvar googleHourlyRateDollars = parseFloat(prompt("What is Google's hourly rate?"));
+// var amazonHourlyRateDollars = parseFloat(prompt("What is Amazon's hourly rate?"));
+// var facebookHourlyRateDollars = parseFloat(prompt("what is Facebook's hourly rate?"));
+// var googleHours = parseFloat(prompt("How many hours did you work for Google?"));
+// var amazonHours = parseFloat(prompt("How many hours did you work for Amazon?"));
+// var facebookHours = parseFloat(prompt("How many hours did you work for Facebook?"));
+// var totalPayment;
+// totalPayment = googleHours * googleHourlyRateDollars;
+// totalPayment += amazonHours * amazonHourlyRateDollars;
+// totalPayment += facebookHours * facebookHourlyRateDollars;
+
+// alert("")
+//
+//
+// var classIsNotFull; // boolean
+// var classSchedulesCheck; // boolean
+// var studentEnrolled = classIsNotFull && classSchedulesCheck;
+//
+//
+// var numberOfItemsForDiscount;
+// var productDiscountApplied = isPremiumMember || (numberOfItems >= numberOfItemsForDiscount && offerIsNotExpired);
 
 
-var classIsNotFull; // boolean
-var classSchedulesCheck; // boolean
-var studentEnrolled = classIsNotFull && classSchedulesCheck;
-
-
-var numberOfItemsForDiscount;
-var numberOfItems; // number
-var offerIsNotExpired; // boolean
-var isPremiumMember; // boolean
-var productDiscountApplied = isPremiumMember || (numberOfItems >= numberOfItemsForDiscount && offerIsNotExpired);
-
+alert("Let's make a peanut butter and jelly sandwich!");
 
