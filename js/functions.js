@@ -9,7 +9,7 @@
  * > sayHello("codeup") // returns "Hello, codeup!"
  */
 
-function sayHello(name) {
+(function sayHello(name) {
     return "Hello " + name + "!"
 }
 
@@ -110,6 +110,7 @@ function applyDiscount(price, discount) {
     return price * discount;
 }
 alert("Your total tip amount is $" + billAndTip());
+)();
 
 /**
  * TODO:
@@ -125,6 +126,10 @@ alert("Your total tip amount is $" + billAndTip());
  *
  * > applyDiscount(45.99, 0.12) // 40.4712
  */
+//immediately invoking a function
+// (function () {
+//
+// })();
 
 // Additional function exercises
 
