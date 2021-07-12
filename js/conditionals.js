@@ -104,38 +104,38 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * return value.
  */
 
-function calculatedTotal(luckyNum, totalAmount) {
-    var discountNum;
-    switch (luckyNum) {
-        case 0:
-            discountNum = 0;
-            break;
-        case 0:
-            discountNum = 0.1;
-            break;
-        case 0:
-            discountNum = 0.25;
-            break;
-        case 0:
-            discountNum = 0.35;
-            break;
-        case 0:
-            discountNum = 0.5;
-            break;
-        case 0:
-            discountNum = 1;
-            break;
-        default:
-            console.log('invalid');
-    }
-    return totalAmount - (discountNum * totalAmount)
-
-}
-
-
-console.log(calculatedTotal(0, 100)) // returns 100
-console.log(calculatedTotal(4, 100)) // returns 50
-console.log(calculatedTotal(5, 100)) // returns 0
+// function calculatedTotal(luckyNum, totalAmount) {
+//     var discountNum;
+//     switch (luckyNum) {
+//         case 0:
+//             discountNum = 0;
+//             break;
+//         case 0:
+//             discountNum = 0.1;
+//             break;
+//         case 0:
+//             discountNum = 0.25;
+//             break;
+//         case 0:
+//             discountNum = 0.35;
+//             break;
+//         case 0:
+//             discountNum = 0.5;
+//             break;
+//         case 0:
+//             discountNum = 1;
+//             break;
+//         default:
+//             console.log('invalid');
+//     }
+//     return totalAmount - (discountNum * totalAmount)
+//
+// }
+//
+//
+// console.log(calculatedTotal(0, 100)) // returns 100
+// console.log(calculatedTotal(4, 100)) // returns 50
+// console.log(calculatedTotal(5, 100)) // returns 0
 
 /**
  * TODO:
@@ -144,11 +144,13 @@ console.log(calculatedTotal(5, 100)) // returns 0
  * and alerts to display to the user what their lucky number was, what their
  * price before the discount was, and what their price after the discount is.
  */
-Generate a random number between 0 and 6
-var luckyNumber = Math.floor(Math.random() * 6);
-
-var totalBill = parseFloat(prompt('What is the total bill?'));
-alert('Your lucky number is ' + luckyNumber + '. Your price for')
+// Generate a random number between 0 and 6
+// var luckyNumber = Math.floor(Math.random() * 6);
+//
+// var totalBill = parseFloat(prompt('What is the total bill?'));
+// var message = 'Your lucky Number is ' + luckyNumber + '.' + 'Your discount price is: ' + totalBill + '. ' + 'Your price after the discount is: '
+//     + calculatedTotal(luckyNumber, totalBill);
+// alert(message);
 
 /**
  * TODO:
@@ -166,3 +168,46 @@ alert('Your lucky number is ' + luckyNumber + '. Your price for')
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+
+
+
+function isANumber(plugin) {
+    return !isNaN(plugin);
+};
+
+function evenOrOdd(num) {
+    if (num % 2 === 0) {
+        return 'Your number is even.';
+    } else {
+        return 'Your number is odd.';
+    }
+}
+
+function big100Number (num) {
+    return num + ' plus 100 is ' + (num + 100);
+}
+
+function positiveOrNegativeNumber(num) {
+    if (num < 0){
+        return 'Your number is negative.';
+    } else {
+        return 'Your number is positive.';
+    }
+}
+
+function userNumAndInfo() {
+    var numberConfirmation= confirm('Would you like to enter a number?');
+    var userNumber = parseFloat(prompt('Input a number: '));
+    if (numberConfirmation) {
+        if (isANumber(userNumber)) {
+            alert("Your number inputted was: " + userNumber);
+            alert(positiveOrNegativeNumber(userNumber));
+            alert(big100Number(userNumber));
+            alert(evenOrOdd(userNumber));
+        }
+    } else {
+        alert('Understood. Nothing else required.')
+    }
+}
+
+userNumAndInfo();
