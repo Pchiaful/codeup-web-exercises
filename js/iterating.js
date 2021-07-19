@@ -61,22 +61,22 @@
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
 
-// function firstItem([element1, element2, element3, element4]){
-//     return names[0];
-// }
-// console.log(firstItem(names));
-//
-// function secondItem([element1, element2, element3, element4]){
-//     return names[1];
-// }
-//
-// console.log(secondItem(names));
-//
-// function lastItem([element1, element2, element3, element4]){
-//     return names[3];
-// }
-//
-// console.log(lastItem(names));
+function firstItem([element1, element2, element3, element4]){
+    return names[0];
+}
+console.log(firstItem(names));
+
+function secondItem([element1, element2, element3, element4]){
+    return names[1];
+}
+
+console.log(secondItem(names));
+
+function lastItem([element1, element2, element3, element4]){
+    return names[names.length -1];
+}
+
+console.log(lastItem(names));
 
     names.forEach(function (element) {
         console.log(names)
