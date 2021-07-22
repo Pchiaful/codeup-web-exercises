@@ -12,11 +12,16 @@
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    // var person = {
+    //     firstName = 'Patrick',
+    //     lastName = 'Chiafullo'
+    // };
+
     var person = {};
     person.firstName = 'Patrick';
     person.lastName = 'Chiafullo';
-    console.log(person.firstName);
-    console.log(person.lastName);
+    // console.log(person.firstName);
+    // console.log(person.lastName);
 
     /**
      * TODO:
@@ -28,9 +33,13 @@
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
 
-    person.sayHello = 'Hello, ' + person.firstName + ' ' + person.lastName + '!';
+    person.sayHello = function() {
+        return 'Hello from ' + person.firstName + ' ' + person.lastName;
+    };
 
-    console.log(person.sayHello);
+    // person.sayHello = 'Hello, ' + person.firstName + ' ' + person.lastName + '!'; INCORRECT
+
+    // console.log(person.sayHello());
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -52,7 +61,22 @@
         {name: 'George', amount: 320}
     ];
 
-    // for (var i = 0; i > shop)
+// for (var i = 0; i < shoppers.length; i += 1) {
+//     var discountedAmount = calculateDiscount(shoppers[i].amount, discountThreshold, discountPercentage);
+//     var output = shoppers[i].name + ' is purchasing ' + shoppers[i].amount +
+//         ' of stuff. He will get ' + discountedAmount +
+//         ' off the purchase and pay ' +
+//         (shoppers[i].amount - discountedAmount) + '.';
+//     console.log(output);
+// }
+
+// shopper.forEach(function (shopper) {
+//     if(shopper.amount >200) {
+//         console.log("Congrats " + shopper.name + " ! You have spent over $200! You qualify for a discount! Your total is $" + shopper.amount + " . You now get a 12% discount. Your new discounted total is: " + (shopper.amount - (shopper.amount * .12)) + " ." )
+//     } else {
+//         console.log("Sorry " + shopper.name + " , you did not spend over $200 and thus do not qualify for our special discount. You only spent $" + shopper.amount)
+//     }
+// });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -90,10 +114,10 @@
             }
         },
         {
-            title: 'Angel of Death',
+            title: 'The Name of the Wind',
             author: {
-                firstName: 'Jack',
-                lastName: 'Higgins'
+                firstName: 'Patrick',
+                lastName: 'Rothfuss'
             }
         },
         {
@@ -105,9 +129,9 @@
         }
     ]
 
-console.log(books[0].title);
-console.log(books[0].author.firstName);
-console.log(books[0].author.lastName);
+// console.log(books[0].title);
+// console.log(books[0].author.firstName);
+// console.log(books[0].author.lastName);
 
     /**
      * TODO:
@@ -134,7 +158,12 @@ console.log(books[0].author.lastName);
      *      ...
      */
 
-books.forEach(
+books.forEach(function(book, index){
+    console.log('Book # ' + (index + 1));
+    console.log('Title: ' + books[0].title);
+    console.log('Author: ' + books[0].author)
+
+});
 
     /**
      * Bonus:
@@ -146,5 +175,7 @@ books.forEach(
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+
 
 // })();
