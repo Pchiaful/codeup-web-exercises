@@ -1,0 +1,46 @@
+.flexbox, .flex-item {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row-reverse; /* reverses rows. also can use column-reverse */
+    /* flex-direction defines the main axis */
+    flex-wrap: wrap; /* wraps do the margins of the page depending on size. wrap-reverse flows upward. */
+    /* flex-wrap follows cross axis */
+    /* flex-flow: row wrao; is the standard */
+    /*justify-content: center; !* controls how flex items in a flex line are distributed along the main axis *!*/
+    /* justify-content: space-around
+    justify-content: space-evenly
+    affect how the elements in the flexbox are separated
+     */
+    align-items: flex-start; /* controls how flex lines are distributed along the cross-axis */
+    /*align-content: stretch; !* controls how extra cross-axis space is distributed between and around flex lines. applies only to multi line containers. no effect on nowrap or single-line containers. *!*/
+
+    /* flex-grow */
+/* define if a flex item can grow in there is available space proportional to its siblings */
+    .five {
+        flex-grow: 1;
+    }
+    .four {
+        flex-grow: 2;
+    }
+    .three {
+        flex-grow: 0,5;
+    }
+/* align-self overrides align-items on a per=flex-item basis */
+/*.one { align-self: flex-end}*/
+/*.two { align-self: center}*/
+/*.three { align-self: center}*/
+/*.four { align-self: center}*/
+
+/* order  can ater te order of items on a case by case basis. default every item has order0. */
+.one { order: 1;}
+.two { order: -1;}
+}
+
+
+
+/* Flexbox in practice */
