@@ -1,0 +1,25 @@
+div {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: darkslategray;
+
+}
+
+.container h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    opacity: 70%;
+    width: 100%;
+
+}
+
+
+

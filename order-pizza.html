@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <title>Practicing Bootstrap</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet"  href="css/custom.css">
 </head>
 <body>
+<div class="container-fluid">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="#">Pizza World</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,28 +26,82 @@
                 <input class="form-control my-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
             </form>
-
         </ul>
-<!--        <form class="form-inline my-2 my-lg-0">-->
-<!--            <input class="form-control my-sm-2" type="search" placeholder="Zip Code" aria-label="Search">-->
-<!--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>-->
-<!--        </form>-->
     </div>
 </nav>
 
-<main class="container">
     <div class="jumbotron jumbotron-fluid">
-        <div class="container">
+            <div class="container-fluid">
+                <main class="container">
             <h1 class="display-4">Welcome to Pizza World!</h1>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
+            <img src="img/pizza.png" class="img-fluid" alt="pizza image">
+                </main>
+            </div>
     </div>
-</main>
+
+<h2>Build your own pizza!</h2>
+
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="size-tab" data-toggle="tab" href="#size" role="tab" aria-controls="size" aria-selected="true"><a href="#" class="badge badge-secondary">1</a> Size and Crust</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="cheese-tab" data-toggle="tab" href="#cheese" role="tab" aria-controls="cheese" aria-selected="false"><a href="#" class="badge badge-secondary">2</a> Cheese and Sauce</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><a href="#" class="badge badge-secondary">3</a> Toppings</a>
+        </li>
+    </ul>
+
+    <div class="tab-content" id="myTabContent">
+        <form action="">
+        <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    Choose size and crust
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-header">
+                            Hand Toseed
+                        </div>
+                        <div class="card-body">
+                            Garlic seasoned crust with a rich, butter taste.
+                        </div>
+                        <ul clas="list-group">
+                            <li class="list-group-item">
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            Crispy Thin
+                        </div>
+                        <div class="card-body">
+                            Thin enough for the optimum crispy to crunchy ratio.
+                        </div>
+                    </div>
+                </div>
+        </div>
+            <div class="card-footer">
+                <button class="btn btn-primary float-right">Next Step</button>
+            </div>
+
+
+        <div class="tab-pane fade" id="cheese" role="tabpanel" aria-labelledby="cheese-tab">...</div>
+
+        <div class="tab-pane fade" id="toppings" role="tabpanel" aria-labelledby="toppings-tab">...</div>
+        </div>
+        </form>
+    </div>
+
 
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
 

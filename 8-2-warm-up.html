@@ -51,7 +51,7 @@
     //
     // console.log(createNames("bob", "jerry"))
     //
-    function createNames(fNames, Lnames {
+    function createNames(fNames, Lnames) {
         var names = [];
         for (var i = 0; i < fNames.length; i += 1) {
             names.push({
@@ -59,8 +59,9 @@
                 lastNames: Lnames[i]
             });
         }
-    })
+    }
 
+    console.log(createNames("bob", "jerry"))
 </script>
 
 </body>
