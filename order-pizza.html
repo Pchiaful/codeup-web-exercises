@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Practicing Bootstrap</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <link rel="stylesheet"  href="css/custom.css">
 </head>
@@ -15,41 +16,42 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto w-100">
             <li class="nav-item active">
                 <a class="nav-link" href="#">Order Online<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Menu</a>
             </li>
-            <form class="form-inline my-2 my-lg-0">
+            <form class="form-inline my-2 my-lg-0 mr-auto">
                 <input class="form-control my-sm-2" type="search" placeholder="Zip Code" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search stores near you!</button>
+                <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search stores near you!</button>
             </form>
+            <li class="nav item">
+                <a href="" class="nav-link"><i class="fas fa-user"></i>Sign up</a>
+            </li>
         </ul>
     </div>
 </nav>
 
-    <div class="jumbotron jumbotron-fluid">
-            <div class="container-fluid">
-                <main class="container">
+        <main class="container">
+            <header class="jumbotron px-0 mt-5 d-none d-md-block">
             <h1 class="display-4">Welcome to Pizza World!</h1>
-            <img src="img/pizza.png" class="img-fluid" alt="pizza image">
-                </main>
-            </div>
-    </div>
+            <img src="img/pizza.png" class="img-fluid m-0" alt="pizza image">
+            </header>
+        </main>
 
 <h2>Build your own pizza!</h2>
 
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" id="size-tab" data-toggle="tab" href="#size" role="tab" aria-controls="size" aria-selected="true"><a href="#" class="badge badge-secondary">1</a> Size and Crust</a>
+            <a class="nav-link active" id="size-tab" data-toggle="tab" href="#size" role="tab" aria-controls="size" aria-selected="true"><a href="#" class="badge badge-secondary"> 1 </a> Size and Crust</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="cheese-tab" data-toggle="tab" href="#cheese" role="tab" aria-controls="cheese" aria-selected="false"><a href="#" class="badge badge-secondary">2</a> Cheese and Sauce</a>
+            <a class="nav-link" id="cheese-tab" data-toggle="tab" href="#cheese" role="tab" aria-controls="cheese" aria-selected="false"><a href="#" class="badge badge-secondary"> 2 </a> Cheese and Sauce</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><a href="#" class="badge badge-secondary">3</a> Toppings</a>
+            <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><a href="#" class="badge badge-secondary"> 3 </a> Toppings</a>
         </li>
     </ul>
 
