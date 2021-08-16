@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    // function processNumber(input) {
+    //     if (input === !isNaN(parseFloat(input))) {
+    //     } else {
+    //         for (i = 0; i < input.length; i += 2) {
+    //             return ((input * 2) + input)
+    //         }
+    //     }
+    // }
+    //
+    // console.log(processNumber(176248))
+
+    //solution
+
+    function processNumber(number) {
+        var numbersArray = number.toString().split('');
+        console.log(numbersArray);
+        var total = 0;
+        numbersArray.forEach(function (number, index) {
+            if(index % 2 !== 0) {
+                if((parseFloat(number) * 2) < 10) {
+                    total += parseFloat(number) * 2;
+                }else {
+                    var numberArray = (number * 2).toString().split('');
+                    var numberToAddToTotal = parseFloat(numberArray[0]) + parseFloat(numberArray[1]);
+                    total += numberToAddToTotal;
+                }
+                // total += parseFloat(number);
+            } else {
+                total += parseFloat(number);
+            }
+        });
+        return total;
+    }
+
+    console.log(processNumber(176248))
+    // var number = 176248;
+    // var numbersArray = number.toString().split('');
+    // console.log(numbersArray);
+    // var total = 0;
+    // numbersArray.forEach(function (number, index) {
+    //     if(index % 2 === 0) {
+    //         total += parseFloat(number);
+    //     }
+    // });
+    //
+    // console.log(total)
+
+    // var number = 176248;
+    // var numbersArray = number.toString().split('');
+    // console.log(numbersArray);
+    // var total = 0;
+    // numbersArray.forEach(function (number, index) {
+    //     if(index % 2 !== 0) {
+    //         if((parseFloat(number) * 2) < 10) {
+    //             total += parseFloat(number) * 2;
+    //         }else {
+    //             var numberArray = (number * 2).toString().split('');
+    //             var numberToAddToTotal = parseFloat(numberArray[0]) + parseFloat(numberArray[1]);
+    //             total += numberToAddToTotal;
+    //         }
+    //         // total += parseFloat(number);
+    //     } else {
+    //         total += parseFloat(number);
+    //     }
+    // });
+
+</script>
+</body>
+</html>

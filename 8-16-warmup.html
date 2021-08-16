@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM Warmups</title>
+</head>
+<body>
+<h1 id="goodMorning">Good Morning, Draco!</h1>
+<button id="afternoon">It's afternoon</button>
+<script src="js/dom-warmups.js"></script>
+
+<script>
+    "use strict";
+
+    function buttonPress() {
+        var changeButton = document.getElementById('goodMorning');
+        return changeButton.innerText = 'Good Afternoon, Draco!'
+
+    }
+
+    document.getElementById('afternoon').addEventListener('click',buttonPress)
+
+    //javier solution
+
+    // var afternoonButton = document.getElementById("afternoon");
+    // var header = document.getElementById("goodMorning");
+    // var changeHeader = function(){
+    //     header.innerHTML = "Good Afternoon, Draco!"
+    // }
+    // afternoonButton.addEventListener('click', changeHeader);
+
+
+
+
+</script>
+</body>
+</html>

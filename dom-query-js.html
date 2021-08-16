@@ -89,11 +89,11 @@
                     listItems[i].style.color = 'grey';
                 }
             }
-        })
+        });
 
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        var subParagraphs = document.querySelector(".sub-paragraph"); // use .getElementsByClassName for the html collection
+        var subParagraphs = document.getElementsByClassName("sub-paragraph");
 
         console.log(subParagraphs);
 
@@ -103,8 +103,8 @@
         var buttonFour = document.getElementById('btn-4');
 
         buttonFour.addEventListener('click', function () {
-            return subParagraphs.innerText = "Mission Accomplished!";
-        })
+            return subParagraphs[0].innerText = "Mission Accomplished!";
+        });
 
     })();
 </script>
