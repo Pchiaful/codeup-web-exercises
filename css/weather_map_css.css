@@ -1,0 +1,14 @@
+body {
+    border: 5px solid black;
+    /*margin: 0;*/
+}
+
+.jumbotron {
+    border: 5px solid green;
+    text-align: center;
+}
+
+#map {
+    border: 5px solid red;
+}
+

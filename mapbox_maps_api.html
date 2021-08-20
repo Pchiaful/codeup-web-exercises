@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox Maps API</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+
+
+</head>
+<body>
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+<button id="zoom1">Zoom 1</button>
+<button id="zoom2">Zoom 2</button>
+<button id="zoom3">Zoom 3</button>
+<button id="refresh">Refresh</button>
+
+<script>
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+    const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4936, 29.4241],
+        zoom: 9
+    });
+
+    document.getElementById("zoom1").addEventListener('click', function () {
+        map.setZoom(5)
+    })
+
+    document.getElementById("zoom2").addEventListener('click', function () {
+        map.setZoom(10)
+    })
+
+    document.getElementById("zoom3").addEventListener('click', function () {
+        map.setZoom(15)
+    })
+
+    document.getElementById("refresh").addEventListener('click', function () {
+        location.reload();
+    })
+
+    var suckItCoord = geocode('7220 Louis Pasteur Dr #125, San Antonio, TX 78229', MAPBOX_API_TOKEN).then(function (coordinates) {
+        console.log(coordinates)
+    });
+    var suckItMarker = new mapboxgl.Marker()
+        .setLngLat([-98.576595, 29.500788])
+        .addTo(map)
+
+    suckItMarker.addEventListener('click', function () {
+        map.setCenter(suckItMarker)
+    })
+
+</script>
+
+
+
+</body>
+</html>
