@@ -1,139 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet' />
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <title>WeatherMap Project</title>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet'>
     <link href="css/weather_map_css.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js%27%3E"></script>
+
 </head>
 <body>
+
+<script src="js/jquery-3.6.0.min.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js%22%3E"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js%22%3E"></script>
+
+<!-- SRC LINKS ABOVE-->
 
 <div class="jumbotron jumbotron-fluid">
     <div class="container">
         <h1 class="display-4">Weather Forecast</h1>
     </div>
 </div>
+
+<form>
+    <div class="row">
+        <div class="col">
+            <input type="text" class="form-control" placeholder="First name">
+        </div>
+    </div>
+</form>
 <!--HTML ABOVE-->
 
 <!--CARDS-->
-<div class="container" style="border: 5px solid black">
-    <div class="row">
+<div class="row">
+    <div class="col">
     <div class="card" style="width: 18rem; border: 5px solid yellow;">
-        <div class="card-header">
-            Featured
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A third item</li>.list-group-item
+<!--DATA GOES BRRR-->
     </div>
-
-    <div class="card" style="width: 18rem; border: 5px solid red">
-        <div class="card-header">
-            Featured
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A third item</li>
-        </ul>
     </div>
-
-    <div class="card" style="width: 18rem; border: 5px solid orange">
-        <div class="card-header">
-            Featured
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A third item</li>
-        </ul>
-    </div>
-
-    <div class="card" style="width: 18rem; border: 5px solid purple">
-        <div class="card-header">
-            Featured
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A third item</li>
-        </ul>
-    </div>
-
-    <div class="card" style="width: 18rem; border: 5px solid black">
-        <div class="card-header">
-            Featured
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A third item</li>
-        </ul>
-    </div>
-</div>
 </div>
 <!--CARDS ABOVE-->
 
 <!--MAP HTML-->
 <div id='map' style='width: 700px; height: 600px;'></div>
 
-<!--HTML ABOVE-->
-<script src="js/jquery-3.6.0.min.js"></script>
-<script src='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js'></script>
-<script src="js/keys.js"></script>
-<script src="js/mapbox-geocoder-utils.js"></script>
-<!-- SRC LINKS ABOVE-->
 
 <!--WEATHERMAP-->
 <script>
-    // (function () {
+    (function () {
         "use strict";
 
 
-        $.get('https://api.openweathermap.org/data/2.5/onecall', {
-            appid: WEATHER_APP_ID,
-            lat: 29.4252,
-            lon: -98.4916,
-            units: 'imperial' ,
-            exclude: 'minutely,hourly'
-        }).done(function(data) {
-            console.log(data);
+            $.get('https://api.openweathermap.org/data/2.5/onecall', {
+                appid: WEATHER_APP_ID,
+                lat: 29.4252,
+                lon: -98.4916,
+                units: 'imperial',
+                exclude: 'minutely,hourly'
+            }).done(function (data) {
+                console.log(data);
 
-            data.daily.forEach(function (day) {
+                    for(var i = 0; i < data.daily.length - 3; i++) {
+                        var cardData = "<div>" +
+                            data.daily[i].temp.max + "°F " + "/ " + data.daily[i].temp.min + "°F" + "</div>";
+                        cardData += "<ul>" + "<li>" + "Description: " + ' ' + data.daily[i].weather[0].description + "</li>";
+                        cardData += "<li>" + "Humidity: " + data.daily[i].humidity + "</li>";
+                        cardData += "<li>" + "Wind: " + data.daily[i].wind_speed + "</li>";
+                        cardData += "<li>" + "Pressure: " + data.daily[i].pressure + "</li>" + "</ul>";
+                        console.log(cardData);
+                        $('.card').append(cardData);
+                    };
 
-            $('.card-header').replaceWith("<div>" +
-                day.data.daily[0].temp.max + "°F " + "/ " + data.daily[0].temp.min + "°F" + "</div>")
-            $('.list-group-item').replaceWith("<li>" + "Desciption: " +
-                day.data.daily[0].weather[0].description + "</li>")
-            $('.list-group-item').replaceWith("<li>" + "Humidity: " +
-                day.data.daily[0].humidity + "</li>")
-            $('.list-group-item').replaceWith("<li>" + "Wind: " +
-                day.data.daily[0].wind_speed + "</li>")
-            $('.list-group-item').replaceWith("<li>" + "Pressure: " +
-                day.data.daily[0].pressure + "</li>")
-        })
-            data.daily.forEach(function (day) {
-                console.log(day.weather[0].description)
-            })
+            }).fail(function (error) {
+                console.log(error);
 
-        }).fail(function(error) {
-            console.log(error);
+            });
 
-        });
-
-    //convert API data/time response to JS Date Object
-    // new date (second ^ 1000)
-
-
-
-
-    // })();
+    })();
 </script>
 <!--WEATHERMAP ABOVE-->
 
@@ -147,7 +96,16 @@
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
         center: [-98.4936, 29.4241], // starting position [lng, lat]
         zoom: 9 // starting zoom
+
     });
+
+    // Add the control to the map.
+    map.addControl(
+        new MapboxGeocoder({
+            accessToken: mapboxgl.accessToken,
+            mapboxgl: mapboxgl
+        })
+    );
 
 
 
