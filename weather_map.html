@@ -37,7 +37,7 @@
 <!--CARDS-->
 <div class="row">
     <div class="col-lg- ">
-    <div class="card" style="border: 5px solid yellow;">
+    <div class="card" >
 <!--DATA GOES BRRR-->
     </div>
     </div>
@@ -49,7 +49,9 @@
 <!--CARDS ABOVE-->
 
 <!--MAP HTML-->
-<div id='map' style='width: 100%; height: 500px;'></div>
+<div id='map' class="col-12" style='width: 100%; height: 500px;'>
+
+
 <pre id="coordinates" class="coordinates"></pre>
 
 
@@ -58,27 +60,34 @@
     // (function () {
         "use strict";
 
-        weatherMapAPI();
 
-        function weatherMapAPI() {
+
+
+        function weatherMapAPI(lat, lng) {
 
         $.get('https://api.openweathermap.org/data/2.5/onecall', {
             appid: WEATHER_APP_ID,
-            lat: 29.4252,
-            lon: -98.4916,
+            lat: lat,
+            lon: lng,
             units: 'imperial',
             exclude: 'minutely,hourly'
         }).done(function (data) {
             console.log(data);
 
+            var html = "";
+
+            // dayOfWeek code by Albert
             for (var i = 0; i < data.daily.length - 3; i++) {
-                var cardData = "<ul>" + "<div>" + data.daily[i].temp.max + "°F " + "/ " + data.daily[i].temp.min + "°F" + "</div>";
-                cardData += "<br>" + "<li>" + "Description: " + ' ' + data.daily[i].weather[0].description + "</li>";
-                cardData += "<li>" + "Humidity: " + data.daily[i].humidity + "</li>";
-                cardData += "<li>" + "Wind: " + data.daily[i].wind_speed + "</li>";
-                cardData += "<li>" + "Pressure: " + data.daily[i].pressure + "</li>" + "</ul>";
-                // console.log(cardData);
-                $('.card').append(cardData);
+                var dayOfWeek = new Date(data.daily[i].dt * 1000);
+                html += "<ul>" + "<h3>" + (new Intl.DateTimeFormat('en-US', {weekday: 'long'}).format(dayOfWeek)) + "</h3>" + "<hr>"
+                + "<div>" + data.daily[i].temp.max + "°F " + "/ " + data.daily[i].temp.min + "°F" + "</div>"
+                + "<br>" + "<li>" + "Description: " + ' ' + data.daily[i].weather[0].description + "</li>"
+                + "<li>" + "Humidity: " + data.daily[i].humidity + "</li>"
+                + "<li>" + "Wind: " + data.daily[i].wind_speed + "</li>"
+                + "<li>" + "Pressure: " + data.daily[i].pressure + "</li>" + "</ul>"
+
+                $('.card').html(html);
+
             }
 
         }).fail(function (error) {
@@ -88,7 +97,7 @@
     }
 
 
-    // })();
+    weatherMapAPI(29.4252, -98.4916);
 
 // WEATHERMAP API ABOVE
 
@@ -113,19 +122,27 @@
     var marker = new mapboxgl.Marker({
         draggable: true
     })
-        .setLngLat([-98.4936, 29.4241])
+        .setLngLat([-98.4916, 29.4252])
         .addTo(map);
 
     function onDragEnd() {
-        var lngLat = marker.getLngLat();
+        const lngLat = marker.getLngLat();
         coordinates.style.display = 'block';
-        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br/>Latitude: ${lngLat.lat}`;
-        // console.log(lngLat);
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+        console.log(lngLat)
+
     }
+
+
 
     marker.on('dragend', onDragEnd);
 
-    console.log(onDragEnd())
+    map.on('moveend', () => {
+        var coordinates = map.getCenter();
+        weatherMapAPI(coordinates.lat, coordinates.lng)
+    })
+
+// MAP AND MARKER ABOVE
 
 
     // map.on('click', function(e){
@@ -133,14 +150,12 @@
 
 
     // function markerForecast() {
-    //     return marker.getLngLat();
-    //     console.log(marker.getLngLat)
+    //     return weatherMapAPI(lat, lon)
     // }
-    //
-    //
-    // markerForecast();
 
+    // console.log(markerForecast(lat, lon));
 
+    // })();
 </script>
 </body>
 </html>
