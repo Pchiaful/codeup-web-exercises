@@ -1,14 +1,59 @@
 body {
-    border: 5px solid black;
-    /*margin: 0;*/
+    /*border: 5px solid black;*/
+    margin: 0;
+    font-family: 'Trocchi', serif;
 }
 
 .jumbotron {
-    border: 5px solid green;
+    /*border: 5px solid green;*/
     text-align: center;
+    background: none;
 }
 
 #map {
-    border: 5px solid red;
+    /*border: 5px solid red;*/
+    margin: 0px;
 }
 
+.coordinates {
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    position: fixed;
+    bottom: 40px;
+    left: 10px;
+    padding: 5px 10px;
+    margin: 0;
+    font-size: 11px;
+    line-height: 18px;
+    border-radius: 3px;
+    display: none;
+}
+
+.card {
+    display: flex;
+    /*padding-top: 100px;*/
+    justify-content: space-between;
+    border: 10px solid black;
+    text-align: center;
+    padding-right: 15px;
+    background: none;
+    padding-top: 15px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    margin-left: auto;
+
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 40%;
+}
+
+ul {
+    list-style-type: none;
+}

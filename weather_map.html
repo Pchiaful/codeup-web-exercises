@@ -4,10 +4,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <title>WeatherMap Project</title>
+
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.css' rel='stylesheet'>
     <link href="css/weather_map_css.css" rel="stylesheet">
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.4.1/mapbox-gl.js%27%3E"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Trocchi&display=swap" rel="stylesheet">
 
 </head>
 <body>
@@ -28,67 +32,66 @@
     </div>
 </div>
 
-<form>
-    <div class="row">
-        <div class="col">
-            <input type="text" class="form-control" placeholder="First name">
-        </div>
-    </div>
-</form>
 <!--HTML ABOVE-->
 
 <!--CARDS-->
 <div class="row">
-    <div class="col">
-    <div class="card" style="width: 18rem; border: 5px solid yellow;">
+    <div class="col-lg- ">
+    <div class="card" style="border: 5px solid yellow;">
 <!--DATA GOES BRRR-->
     </div>
     </div>
 </div>
+
+<video autoplay muted loop id="myVideo">
+    <source src="img/clouds_mov.mp4" type="video/mp4">
+</video>
 <!--CARDS ABOVE-->
 
 <!--MAP HTML-->
-<div id='map' style='width: 700px; height: 600px;'></div>
+<div id='map' style='width: 100%; height: 500px;'></div>
+<pre id="coordinates" class="coordinates"></pre>
 
 
 <!--WEATHERMAP-->
 <script>
-    (function () {
+    // (function () {
         "use strict";
 
+        weatherMapAPI();
 
-            $.get('https://api.openweathermap.org/data/2.5/onecall', {
-                appid: WEATHER_APP_ID,
-                lat: 29.4252,
-                lon: -98.4916,
-                units: 'imperial',
-                exclude: 'minutely,hourly'
-            }).done(function (data) {
-                console.log(data);
+        function weatherMapAPI() {
 
-                    for(var i = 0; i < data.daily.length - 3; i++) {
-                        var cardData = "<div>" +
-                            data.daily[i].temp.max + "°F " + "/ " + data.daily[i].temp.min + "°F" + "</div>";
-                        cardData += "<ul>" + "<li>" + "Description: " + ' ' + data.daily[i].weather[0].description + "</li>";
-                        cardData += "<li>" + "Humidity: " + data.daily[i].humidity + "</li>";
-                        cardData += "<li>" + "Wind: " + data.daily[i].wind_speed + "</li>";
-                        cardData += "<li>" + "Pressure: " + data.daily[i].pressure + "</li>" + "</ul>";
-                        console.log(cardData);
-                        $('.card').append(cardData);
-                    };
+        $.get('https://api.openweathermap.org/data/2.5/onecall', {
+            appid: WEATHER_APP_ID,
+            lat: 29.4252,
+            lon: -98.4916,
+            units: 'imperial',
+            exclude: 'minutely,hourly'
+        }).done(function (data) {
+            console.log(data);
 
-            }).fail(function (error) {
-                console.log(error);
+            for (var i = 0; i < data.daily.length - 3; i++) {
+                var cardData = "<ul>" + "<div>" + data.daily[i].temp.max + "°F " + "/ " + data.daily[i].temp.min + "°F" + "</div>";
+                cardData += "<br>" + "<li>" + "Description: " + ' ' + data.daily[i].weather[0].description + "</li>";
+                cardData += "<li>" + "Humidity: " + data.daily[i].humidity + "</li>";
+                cardData += "<li>" + "Wind: " + data.daily[i].wind_speed + "</li>";
+                cardData += "<li>" + "Pressure: " + data.daily[i].pressure + "</li>" + "</ul>";
+                // console.log(cardData);
+                $('.card').append(cardData);
+            }
 
-            });
+        }).fail(function (error) {
+            console.log(error);
 
-    })();
-</script>
-<!--WEATHERMAP ABOVE-->
+        });
+    }
 
-<!--MAPBOX-->
-<script>
-    "use strict";
+
+    // })();
+
+// WEATHERMAP API ABOVE
+
 
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     var map = new mapboxgl.Map({
@@ -107,7 +110,35 @@
         })
     );
 
+    var marker = new mapboxgl.Marker({
+        draggable: true
+    })
+        .setLngLat([-98.4936, 29.4241])
+        .addTo(map);
 
+    function onDragEnd() {
+        var lngLat = marker.getLngLat();
+        coordinates.style.display = 'block';
+        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br/>Latitude: ${lngLat.lat}`;
+        // console.log(lngLat);
+    }
+
+    marker.on('dragend', onDragEnd);
+
+    console.log(onDragEnd())
+
+
+    // map.on('click', function(e){
+    //     console.log(e);
+
+
+    // function markerForecast() {
+    //     return marker.getLngLat();
+    //     console.log(marker.getLngLat)
+    // }
+    //
+    //
+    // markerForecast();
 
 
 </script>
