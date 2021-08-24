@@ -126,20 +126,17 @@
         .addTo(map);
 
     function onDragEnd() {
-        const lngLat = marker.getLngLat();
-        coordinates.style.display = 'block';
-        coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-        console.log(lngLat)
+        var coordinates = marker.getLngLat();
+        weatherMapAPI(coordinates.lat, coordinates.lng)
 
     }
-
-
 
     marker.on('dragend', onDragEnd);
 
     map.on('moveend', () => {
         var coordinates = map.getCenter();
         weatherMapAPI(coordinates.lat, coordinates.lng)
+        marker.setLngLat(coordinates)
     })
 
 // MAP AND MARKER ABOVE
