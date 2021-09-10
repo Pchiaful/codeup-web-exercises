@@ -2,9 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>JQuery Faq</title>
+    <link rel="stylesheet" href="css/jquery_faq_styling.css">
+
 </head>
 <body>
+<script src="js/jquery-3.6.0.min.js"></script>
+<h3 class="centered">FACTS ABOUT</h3>
+<h1>SPAAAAAAAACE</h1>
+<hr>
+<dl>
+    <!--    SOURCES ABOUT SPACE FROM: https://www.natgeokids.com/uk/discover/science/space/ten-facts-about-space/-->
+    <dt id="click-me">Our star!</dt>
+    <dd class="invisible">One million Earths could fit inside the sun – and the sun is considered an average-size star.</dd>
+
+    <dt id="click-me">Mars is kind of wet!</dt>
+    <dd class="invisible">For years it was believed that Earth was the only planet in our solar system with liquid water. More
+        recently, NASA revealed its strongest evidence yet that there is intermittent running water on Mars, too!
+    </dd>
+
+    <dt id="click-me">Comets are old af!</dt>
+    <dd class="invisible">Comets are leftovers from the creation of our solar system about 4.5 billion years ago – they consist of
+        sand, ice and carbon dioxide.
+    </dd>
+
+    <dt id="click-me">Some planets be gassy!</dt>
+    <dd class="invisible">You would not be able to walk on Jupiter, Saturn, Uranus or Neptune because they have no solid
+        surface!
+    </dd>
+
+    <dt id="click-me">Pluto so far away. So very very far away.</dt>
+    <dd class="invisible">If you could fly a plane to Pluto, the trip would take more than 800 years!</dd>
+
+    <dt id="click-me">We are already effing up space!</dt>
+    <dd class="invisible">Space junk is any human-made object orbiting Earth that no longer serves a useful purpose. Scientists
+        estimate there are about 500,000 pieces of space junk today, including fragments from rockets and satellites, and everyday
+        items like spanners dropped during construction of the International Space Station!
+    </dd>
+
+    <dt id="click-me">The earth has a shield that burns stuff up, I guess.</dt>
+    <dd class="invisible"> An asteroid about the size of a car enters Earth’s atmosphere roughly once a year – but it burns up
+        before it reaches us. Phew!
+    </dd>
+
+    <dt id="click-me">Big things are out there!</dt>
+    <dd class="invisible">The highest mountain known to man is on an asteroid called Vesta. Measuring a whopping 22km in height,
+        it is three times as tall as Mount Everest!
+    </dd>
+
+    <dt id="click-me">Stars abound!</dt>
+    <dd class="invisible"> There are more stars in the universe than grains of sand on all the beaches on Earth. That’s at least a
+        billion trillion!
+    </dd>
+
+    <dt id="click-me">For a red planet, this is pretty weird!</dt>
+    <dd class="invisible">The sunset on Mars appears blue.</dd>
+</dl>
+
+<script>
+    $(document).ready(function () {
+        $('#click-me').on('click', function () {
+            $('.invisible').toggle();
+        });
+    });
+
+
+</script>
 
 </body>
 </html>
