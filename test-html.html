@@ -5,24 +5,118 @@
     <meta charset="utf8">
 </head>
 <body>
-<h1 id="user_display">show the input here with button click</h1>
-<input id="user_input">
-<button id="clickme">click me</button>
+<!--<h1 id="user_display">show the input here with button click</h1>-->
+<!--<input id="user_input">-->
+<!--<button id="clickme">click me</button>-->
 
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
     "use strict"
-    // vanilla js
-    // document.getElementById("clickme").addEventListener('click',function(){
-    //     document.getElementById('user_display').innerHTML = document.getElementById("user_input").value;
-    // },false);
+//     // vanilla js
+//     // document.getElementById("clickme").addEventListener('click',function(){
+//     //     document.getElementById('user_display').innerHTML = document.getElementById("user_input").value;
+//     // },false);
+//
+//     // $('#clickme').click(function(){
+//     //     $('#user_display').html($('#user_input').val());
+//     // });
+//
+//     // $('#clickme').click($('#user_display').text($('#user_input').val()));
+//
+//
+//     /**
+//      * RESTful APIs allow us to CRUD resources/entities on a server using the REST architectural style.
+//      * Most APIs are structured in a RESTful way. Later in the course, we will be building our own
+//      * using Java. For now we can make requests to a mock server. Typically, we can use HTTP methods
+//      * and JSON to send and receive data when CRUDing entities.
+//      *
+//      * More info: https://restfulapi.net/
+//      */
+//
+//     "use strict";
+//
+//     const API_URL = 'https://vagabond-glacier-verse.glitch.me/dogs';
+//
+//     /**
+//      * Example function to fetch all records
+//      * @returns {Promise<void>}
+//      */
+//     const getDogs = () => fetch(API_URL)
+//         .then(res => res.json())
+//         .then(data => console.log(data))
+//         .catch(console.error);
+// getDogs()
+//     /**
+//      * Example function to fetch single dog object by id
+//      * @param id - the primary key of the api data
+//      * @returns {Promise<any | void>}
+//      */
+//     const getDog = id => fetch(`${API_URL}/${id}`)
+//         .then(res => res.json())
+//         .catch(console.error);
+//
+//     /**
+//      * Example function to edit a given dog object
+//      * @param dog - a dog object with a valid id
+//      * @returns {Promise<any | void>}
+//      */
+//     const editDog = dog => fetch(`${API_URL}/${dog.id}`, {
+//         method: 'PUT',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(dog)
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(`Success: edited ${JSON.stringify(data)}`);
+//         })
+//         .catch(console.error);
+//
+//     /**
+//      * Example function to delete a dog object by it's id
+//      * @param id - the primary key of the api data
+//      * @returns {Promise<any | void>}
+//      */
+//     const deleteDog = id => fetch(`${API_URL}/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     })
+//         .then(res => res.json())
+//         .then(() => {
+//             console.log(`Success: deleted dog with id of ${id}`);
+//         })
+//         .catch(console.error);
+//
+//     /**
+//      * Example function to create a new dog object
+//      * @param dog
+//      * @returns {Promise<any | void>}
+//      */
+//     const addDog = (dog) => fetch(`${API_URL}`, {
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json'
+//         },
+//         body: JSON.stringify(dog)
+//     })
+//         .then(res => res.json())
+//         .then(data => {
+//             console.log(`Success: created ${JSON.stringify(data)}`);
+//             return data.id; // to access the primary key of the newly created entity
+//         })
+//         .catch(console.error);
+//
+//     addDog()
 
-    // $('#clickme').click(function(){
-    //     $('#user_display').html($('#user_input').val());
-    // });
+    const isDivisibleBy3 = n => n % 3 === 0;
 
-    $('#clickme').click($('#user_display').text($('#user_input').val()));
+    const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
+    console.log(numbers.filter(isDivisibleBy3));
+    console.log(numbers);
 
 </script>
 </body>
