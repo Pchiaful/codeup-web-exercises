@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<button id="hide-btn">Hide Paragraph</button>
+<button id="show-btn">Show Paragraph</button>
+
+<p id="paragraph">This paragraph will disappear when the button is clicked.</p>
+
+<script>
+
+    $('#hide-btn').click(function() {
+        $('#paragraph').hide();
+    });
+
+    $('#show-btn').click(function() {
+        $('#paragraph').show();
+    });
+
+</script>
+
+</body>
+</html>
