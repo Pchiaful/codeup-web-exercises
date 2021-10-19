@@ -9,6 +9,7 @@
 
 <button id="hide-btn">Hide Paragraph</button>
 <button id="show-btn">Show Paragraph</button>
+<button id="color-me">Make text a color</button>
 
 <p id="paragraph">This paragraph will disappear when the button is clicked.</p>
 
@@ -22,6 +23,9 @@
         $('#paragraph').show();
     });
 
+    $('#color-me').click(function () {
+        return document.getElementById("paragraph").style.color = 'blue';
+    })
 </script>
 
 </body>
